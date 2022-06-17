@@ -36,7 +36,7 @@ void checadados();
 
 void imprimirdica(dados v[N]);
 
-int jogo();
+void jogo(dados v[N]);
 
 
 int main(void) {
@@ -132,7 +132,7 @@ void entradados(dados v[N]) {
 // ok
 void mostradados(dados v[N], int a) {
     printf("Dados da palavra %d\n", a);
-    printf("Palavra: %sDica: %sOrientacao: %s\n", v[a].palavra, v[a].dica,v[a].orientacao);
+    printf("Palavra: %s\nDica: %s\nOrientacao: %s\n", v[a].palavra, v[a].dica,v[a].orientacao);
 }
 
 
@@ -148,12 +148,12 @@ void checadados(){
         menu();
     }
     do {
-        int k=0;
+        int k;
         printf("\nDiga o numero da palavra que voce quer checar\n");
         scanf("%d", &k);
         char h;
         scanf("%c",&h);
-        while(k<cont||k>cont){
+        while(k<=0||k>cont){
         printf("Digite uma palavra valida! >:(\n");
         scanf("%d", &k);
         scanf("%c",&h);
@@ -202,7 +202,7 @@ void carregando(){
     system("cls");
 }
 
-int jogo(dados v[N]) {
+void jogo(dados v[N]) {
   system("cls");
   char resp[50];
   int t;
@@ -233,12 +233,6 @@ int jogo(dados v[N]) {
             char l;
             scanf("%c", &l);
         }
-        /*while(v[t].respondido==1){
-            printf("Essa palavra ja foi respondida! Escolha outra palavra:\n");
-            scanf("%d", &t);
-            char l;
-            scanf("%c", &l);
-        }*/
         printf("Voce escolheu a palavra: %d\nInsira sua resposta:\n", t);
         fgets(resp, sizeof(resp), stdin);
         strtok(resp, "\n");
