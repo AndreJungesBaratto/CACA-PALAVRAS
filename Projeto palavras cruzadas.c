@@ -16,7 +16,7 @@ typedef struct {
 
 // se pah a gnt pd so fzr um vetor cm tamanho MTO grande, e falar q tem um
 // limite de palavras (tp 10), vamo testar
-//pior q acho que 5 palavras j� ta dboa. se n�o capaz de nem caber na tela
+//pior q acho que 5 palavras ja ta dboa. se nao capaz de nem caber na tela
 
 dados infojogo[N];
 int cont = 0, fim; // N vai aumentando(alocacao dinamica q o jo falou)
@@ -25,6 +25,8 @@ void menu();
 
 // funcao de carregar
 void carregando();
+
+void teladefim();
 
 // funcao q entra dados
 void entradados(dados v[N]);
@@ -77,10 +79,11 @@ void menu() {
         system("cls");
         carregando();
         jogo(infojogo);
-        carregando();
-        menu();
+        teladefim();
+        abort();
     }
     if (opcao == 4) {
+        system("color 6");
         printf("Voce saiu do jogo.");
         abort();
     }
@@ -117,7 +120,6 @@ void entradados(dados v[N]) {
         scanf("%c",&k);
     } while(c=='s' || c=='S');
     fim=cont;
-    printf("\nVoce montou seu jogo!\n pressione qualquer tecla para voltar ao menu\n");
 }
 
 // ok
@@ -195,6 +197,50 @@ void carregando(){
     system("cls");
 }
 
+void teladefim(){
+    for(int k=0;k<1;k++){
+        char vitc[13];
+        memset(vitc,'-',12);
+        vitc[0]='o';
+        system("color 6");
+        puts(vitc);printf("    \\[^^]\\    \n");printf("Voce venceu!\n");puts(vitc);
+        for(int i=1;i<12;i++){
+            system("cls");
+            vitc[i]='o';
+            vitc[i-1]='-';
+            puts(vitc);
+            if(i%2==1){
+                system("color 9");
+                printf("   /[^^]/    \n");
+            }else{
+                system("color 6");
+                printf("   \\[^^]\\    \n");
+            }
+            printf("Voce venceu!\n");puts(vitc);
+            Sleep(125);
+        }
+        for(int i=10;i>=0;i--){
+            system("cls");
+            vitc[i]='o';
+            vitc[i+1]='-';
+            puts(vitc);
+            if(i%2==1){
+                system("color 9");
+                printf("   /[^^]/    \n");
+            }else{
+                system("color 6");
+                printf("   \\[^^]\\   \n");
+            }
+            printf("Voce venceu!\n");puts(vitc);
+            Sleep(125);
+        }
+        system("cls");
+        system("color 7");
+    }
+    printf("Aperte qualquer botao para sair\n");
+    getch();
+}
+
 void jogada(dados v[N]){
     char resp[50];
     int t;
@@ -218,14 +264,20 @@ void jogada(dados v[N]){
         strtok(resp, "\n");
         int teste=strcmp(v[t].palavra, resp);
             if(teste==0){
+                system("color 2");
                 printf("Resposta correta! XD\n");
                 v[t].respondido=1;
                 fim--;
                 getch();
+                system("cls");
+                system("color 7");
             }
             else {
+            system("color 4");
             printf("Resposta incorreta ;-;\n");
             getch();
+            system("cls");
+            system("color 7");
             }
 }
 
