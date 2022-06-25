@@ -41,22 +41,13 @@ void jogada(dados v[N]);
 
 void jogo(dados v[N]);
 
+void iniciar();
+
+void desligar();
+
 
 int main(void) {
-    printf("Iniciando o Windows .....");
-    system("color 1");
-    Beep(622, 350);
-    Beep(311, 100);
-    system("color 6");
-    Beep(466, 350);
-    Beep(311, 100);
-    system("color 2");
-    Beep(415, 400);
-    Beep(311, 250);
-    Beep(622, 400);
-    system("color 4");
-    Beep(466, 750);
-    system("color 7");
+    iniciar();
     menu();
 }
 
@@ -87,14 +78,48 @@ void menu() {
         carregando();
         jogo(infojogo);
         teladefim();
+        desligar();
         abort();
     }
     if (opcao == 3) {
         system("color 6");
         printf("Voce saiu do jogo.");
+        desligar();
         abort();
     }
     return;
+}
+
+void iniciar(){
+    printf("Iniciando o Windows .....");
+    system("color 1");
+    Beep(622, 350);
+    Beep(311, 100);
+    system("color 6");
+    Beep(466, 350);
+    Beep(311, 100);
+    system("color 2");
+    Beep(415, 400);
+    Beep(311, 250);
+    Beep(622, 400);
+    system("color 4");
+    Beep(466, 750);
+    system("color 7");
+}
+
+void desligar(){
+    system("cls");
+    printf("Desligando o Windows .....");
+    system("color 4");
+    Beep(840, 200);
+    system("color 2");
+    Beep(620, 200);
+    system("color 6");
+    Beep(420, 200);
+    system("color 1");
+    Beep(460, 800);
+    system("cls");
+    system("color 7");
 }
 
 // falta matriz apoio
