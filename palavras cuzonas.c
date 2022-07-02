@@ -10,7 +10,7 @@
 typedef struct {
     char palavra[50];
     char dica[100];
-    int orientacao; // 1 - Horizontal // 2 - Vertical
+    char orientacao; // 1 - Horizontal // 2 - Vertical
     int x;
     int y;
     int respondido; //0 - Vazio //1 - Preenchido).
@@ -29,7 +29,7 @@ void iniciar();
 void desligar();
 void surpresa();
 
-// Funções da matriz:
+// FunÃ§Ãµes da matriz:
 void montamatriz();
 char** resetmatriz();
 void imprimirmatriz();
@@ -276,31 +276,6 @@ void imprimirdica(dados v[N]){
 
 void carregando(){
     system("cls");
-   /*for(int k=0;k<1;k++){
-        char carr[7];
-        memset(carr,'-',6);
-        carr[0]='o';
-        printf("  ");puts(carr);printf("carregando\n  ");puts(carr);
-        for(int i=1;i<6;i++){
-            system("cls");
-            carr[i]='o';
-            carr[i-1]='-';
-            printf("  ");puts(carr);printf("carregando\n  ");puts(carr);
-            Sleep(100);
-        }
-        for(int i=4;i>=0;i--){
-            system("cls");
-            carr[i]='o';
-            carr[5]='-';
-            if(i<=3){
-                carr[i+1]='-';
-            }
-            printf("  ");puts(carr);printf("carregando\n  ");puts(carr);
-            Sleep(100);
-        }
-        system("cls");
-    }
-    system("cls");*/
     for (int i = 0; i < 1; i++) {
         char a[10];
         printf("Carregando");
@@ -435,10 +410,10 @@ void montamatriz() {
 
     /*
     A fazer:
-    - Testar se haverá sobreposição de letras distintas
+    - Testar se haverÃ¡ sobreposiÃ§Ã£o de letras distintas
     - Impedir que letra estravaze limite da matriz
-    - Limitar tamanho máximo tabuleiro (lin < )
-    - Testar se coordenada y é uma letra
+    - Limitar tamanho mÃ¡ximo tabuleiro (lin < )
+    - Testar se coordenada y Ã© uma letra
 
     */
 
@@ -462,7 +437,7 @@ void montamatriz() {
     }
     else {
         system("cls");
-        printf("Opção incorreta!\n");
+        printf("OpÃ§Ã£o incorreta!\n");
         goto orientacao1;
     }
     system("cls");
@@ -492,7 +467,7 @@ void montamatriz() {
         }
         else {
             system("cls");
-            printf("Opção incorreta!\n");
+            printf("OpÃ§Ã£o incorreta!\n");
             goto orientacao;
         }
 
