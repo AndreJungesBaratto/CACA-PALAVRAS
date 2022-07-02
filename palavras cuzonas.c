@@ -84,14 +84,14 @@ void menu() {
         teladefim();
         desligar();
         surpresa();
-        return();
+        return;
     }
     if (opcao == 3) {
         system("color 6");
         printf("Voce saiu do jogo.");
         desligar();
         surpresa();
-        return();
+        return;
     }
     return;
 }
