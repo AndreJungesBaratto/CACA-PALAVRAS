@@ -10,7 +10,7 @@
 typedef struct {
     char palavra[50];
     char dica[100];
-    char orientacao; // 1 - Horizontal // 2 - Vertical
+    int orientacao; // 1 - Horizontal // 2 - Vertical
     int x;
     int y;
     int respondido; //0 - Vazio //1 - Preenchido).
@@ -84,14 +84,14 @@ void menu() {
         teladefim();
         desligar();
         surpresa();
-        abort();
+        return();
     }
     if (opcao == 3) {
         system("color 6");
         printf("Voce saiu do jogo.");
         desligar();
         surpresa();
-        abort();
+        return();
     }
     return;
 }
@@ -266,8 +266,8 @@ void imprimirdica(dados v[N]){
         if(v[i].respondido==0){
             printf("Dica da palavra %d: ", i);
             puts(v[i].dica);
-            printf("Orientacao da palavra %d: ", i);
-            puts(v[i].orientacao);
+            /*printf("Orientacao da palavra %d: ", i);
+            puts(v[i].orientacao);*/
             printf("\n");
         }
   }
@@ -531,7 +531,8 @@ void montamatriz() {
 
     Sleep(500);
     printf("Tabuleiro de jogo montado!\n");
-    Sleep(500);
+    printf("Aperte enter para continuar.\n"); 
+    getchar();
 }
 
 
