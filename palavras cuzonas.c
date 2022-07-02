@@ -437,7 +437,7 @@ void montamatriz() {
     }
     else {
         system("cls");
-        printf("Opção incorreta!\n");
+        printf("Opcao incorreta!\n");
         goto orientacao1;
     }
     system("cls");
@@ -467,7 +467,7 @@ void montamatriz() {
         }
         else {
             system("cls");
-            printf("Opção incorreta!\n");
+            printf("Opcao incorreta!\n");
             goto orientacao;
         }
 
