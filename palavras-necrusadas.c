@@ -102,7 +102,8 @@ void menu() {
         system("cls");
         carregando();
         jogo(infojogo);
-
+	getchar();
+	    
         // Ao retornar, o programa roda uma animacao parabenizando o jogador e volta novamente para o menu, para que o jogador escolha o que deseja fazer.
         teladefim();
         menu();
