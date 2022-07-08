@@ -97,6 +97,8 @@ void menu() {
         carregando();
 
         jogo(infojogo);
+	    
+	getchar();
 
         teladefim();
 
